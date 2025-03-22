@@ -1,5 +1,6 @@
 import { createBrowserRouter, RouterProvider } from "react-router";
 import { Error, Home } from "../Pages";
+import Chats from "../Pages/Chats";
 
 const RouterPages = () => {
   const routes = createBrowserRouter([
@@ -10,6 +11,10 @@ const RouterPages = () => {
         {
           index: true,
           element: <Home />,
+        },
+        {
+          path: "/chats",
+          element: <Chats />,
         },
       ],
     },
