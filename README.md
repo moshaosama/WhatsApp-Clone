@@ -1,54 +1,55 @@
-# React + TypeScript + Vite
+# WhatsApp Clone
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is a clone of the popular messaging application **WhatsApp**, built using the MERN (MongoDB, Express, React, Node.js) stack.
 
-Currently, two official plugins are available:
+## Features
+- Real-time chat using WebSockets (Socket.IO)
+- User authentication and authorization
+- One-to-one messaging
+- Group chat support
+- Media file sharing (images, videos, documents)
+- Message status (sent, delivered, seen)
+- User profiles and settings
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Tech Stack
+- **Frontend:** React, Redux, Tailwind CSS
+- **Backend:** Node.js, Express.js
+- **Database:** MongoDB
+- **Real-Time Communication:** Socket.IO
+- **Authentication:** JWT (JSON Web Tokens)
 
-## Expanding the ESLint configuration
+## Installation
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+1. Clone the repository:
+    ```bash
+    git clone https://github.com/moshaosama/whatsapp-clone.git
+    ```
+2. Install dependencies for both frontend and backend:
+    ```bash
+    cd whatsapp-clone
+    cd frontend
+    npm install
+    cd ../backend
+    npm install
+    ```
+3. Create a `.env` file in the backend directory with the following variables:
+    ```env
+    MONGO_URI=your_mongo_db_uri
+    JWT_SECRET=your_jwt_secret
+    SOCKET_PORT=5000
+    ```
+4. Run the backend server:
+    ```bash
+    npm run dev
+    ```
+5. Run the frontend:
+    ```bash
+    cd frontend
+    npm start
+    ```
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+## API Endpoints
+- **POST /api/auth/register** - Register a new user
+- **POST /api/auth/login** - Login user
+- **GET /api/messages/:chatId** - Get messages by chat ID
+- **POST /api/messages/send** - Send a new message
