@@ -2,14 +2,21 @@ import { useMemo } from "react";
 import { NavbarIconsList } from "./NavbarIconsList";
 import { NavbarIconType } from "../../Types/NavbarIcon/NavbarIcon";
 import { NavLink } from "react-router";
+import Tippy from "@tippyjs/react";
 
 const NavbarIcons = () => {
   const navbarIconList = useMemo(() => {
     return NavbarIconsList?.map((el: NavbarIconType) => {
       return (
-        <NavLink to={el.To} key={el.id} title={el.Title}>
-          {el.Icon}
-        </NavLink>
+        <Tippy
+          content={el.Title}
+          placement="right"
+          className="bg-black text-white px-4 rounded-full"
+        >
+          <NavLink to={el.To} key={el.id}>
+            {el.Icon}
+          </NavLink>
+        </Tippy>
       );
     });
   }, []);

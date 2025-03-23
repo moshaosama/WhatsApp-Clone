@@ -1,8 +1,10 @@
 import { CgDetailsMore } from "react-icons/cg";
 import { IoMdAddCircleOutline } from "react-icons/io";
 import { IoAddSharp } from "react-icons/io5";
+import style from "./Status.module.css";
 
 const Status = () => {
+  const { addIcon, Status, StatusImage } = style;
   return (
     <div className="w-96 p-3">
       <div className="flex justify-between items-center">
@@ -22,7 +24,7 @@ const Status = () => {
               decoding="async"
               className="object-cover w-12 h-12 rounded-full"
             />
-            <div className="absolute bottom-0 right-0 bg-[#4FCE5D] rounded-full border-[2px] border-solid border-white">
+            <div className={addIcon}>
               <IoAddSharp />
             </div>
           </div>
@@ -36,7 +38,7 @@ const Status = () => {
         <div className="mt-4">
           <h1 className="text-[#4FCE5D]">RECENT</h1>
           <div className="mt-3">
-            <div className=" px-1 cursor-pointer hover:bg-[#ddd] transition-all duration-300">
+            <div className={`${Status} transition-all duration-300`}>
               <hr className="border-gray-200" />
               <div className="mt-2 flex items-center gap-5">
                 <img
@@ -44,7 +46,7 @@ const Status = () => {
                   alt="Person.png"
                   loading="lazy"
                   decoding="async"
-                  className="object-cover w-12 h-12 rounded-full border-[4px] border-solid border-[#4FCE5D]"
+                  className={`${StatusImage} object-cover`}
                 />
                 <div className="text-sm">
                   <h1 className="font-semibold">Mo4aFekry</h1>
