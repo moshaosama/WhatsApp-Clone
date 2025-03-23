@@ -1,0 +1,9 @@
+.Icon {
+  font-size: 25px;
+  color: rgb(141, 141, 141);
+  cursor: pointer;
+
+  &:hover {
+    color: black;
+  }
+}
