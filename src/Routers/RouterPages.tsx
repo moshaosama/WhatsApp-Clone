@@ -1,6 +1,6 @@
 import { createBrowserRouter, RouterProvider } from "react-router";
 import { Chats, Error, Home } from "../Pages";
-import { ChatsNumber, Status } from "../Components";
+import { Channels, ChatsNumber, Status } from "../Components";
 
 const RouterPages = () => {
   const routes = createBrowserRouter([
@@ -23,6 +23,10 @@ const RouterPages = () => {
             {
               path: "status",
               element: <Status />,
+            },
+            {
+              path: "channel",
+              element: <Channels />,
             },
           ],
         },

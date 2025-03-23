@@ -1,6 +1,7 @@
 import { CgDetailsMore } from "react-icons/cg";
 import { IoMdAddCircleOutline } from "react-icons/io";
 import { NavLink } from "react-router";
+import InputForm from "../Atoms/InputForm";
 
 const ChatsNumber = () => {
   return (
@@ -13,13 +14,7 @@ const ChatsNumber = () => {
             <CgDetailsMore className="text-xl text-gray-500 cursor-pointer" />
           </div>
         </div>
-        <form className="mt-4">
-          <input
-            type="text"
-            placeholder="Search"
-            className="bg-gray-200 p-1 px-4 rounded-sm w-full"
-          />
-        </form>
+        <InputForm />
         <div className="mt-2 flex gap-2">
           <NavLink to={""} className="bg-gray-200 p-1 px-3 rounded-full">
             All
