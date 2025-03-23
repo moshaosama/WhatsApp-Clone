@@ -6,8 +6,8 @@ import style from "./Status.module.css";
 const Status = () => {
   const { addIcon, Status, StatusImage } = style;
   return (
-    <div className="w-96 p-3">
-      <div className="flex justify-between items-center">
+    <div className="w-96">
+      <div className="flex p-3 justify-between items-center">
         <h1 className="font-bold text-xl">Status</h1>
         <div className="flex items-center gap-5">
           <IoMdAddCircleOutline className="text-xl text-gray-500 cursor-pointer" />

@@ -2,18 +2,17 @@ import { CgDetailsMore } from "react-icons/cg";
 import { IoMdAddCircleOutline } from "react-icons/io";
 import { NavLink } from "react-router";
 import InputForm from "../Atoms/InputForm";
+import HeaderPage from "../Atoms/HeaderPage";
 
 const ChatsNumber = () => {
   return (
     <>
-      <div className="w-96 p-3">
-        <div className="flex justify-between items-center">
-          <h1 className="font-bold text-xl">Chats</h1>
-          <div className="flex items-center gap-5">
-            <IoMdAddCircleOutline className="text-xl text-gray-500 cursor-pointer" />
-            <CgDetailsMore className="text-xl text-gray-500 cursor-pointer" />
-          </div>
-        </div>
+      <div className="w-96 ">
+        <HeaderPage
+          Title={"Chats"}
+          ActiveIconAdd={true}
+          ActiveIconDetails={true}
+        />
         <InputForm />
         <div className="mt-2 flex gap-2">
           <NavLink to={""} className="bg-gray-200 p-1 px-3 rounded-full">

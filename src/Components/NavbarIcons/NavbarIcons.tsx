@@ -28,15 +28,17 @@ const NavbarIcons = () => {
       <div className="flex flex-col gap-3">{navbarIconList}</div>
       <div className="flex flex-col gap-5 items-center">
         <IoMdSettings className={Icon} />
-        <div className="cursor-pointer">
-          <img
-            src="/WhatsApp Image 2024-10-20 at 21.44.22_3cca6ed1.jpg"
-            alt="Profile.png"
-            loading="lazy"
-            decoding="async"
-            className="object-cover w-10 h-10 rounded-full"
-          />
-        </div>
+        <NavLink to={"/chats/profile"}>
+          <div className="cursor-pointer">
+            <img
+              src="/WhatsApp Image 2024-10-20 at 21.44.22_3cca6ed1.jpg"
+              alt="Profile.png"
+              loading="lazy"
+              decoding="async"
+              className="object-cover w-10 h-10 rounded-full"
+            />
+          </div>
+        </NavLink>
       </div>
     </div>
   );
