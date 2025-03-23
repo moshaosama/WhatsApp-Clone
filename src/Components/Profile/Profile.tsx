@@ -1,3 +1,4 @@
+import { MdModeEditOutline } from "react-icons/md";
 import HeaderPage from "../Atoms/HeaderPage";
 
 const Profile = () => {
@@ -20,8 +21,25 @@ const Profile = () => {
           <div className="absolute flex justify-center items-center top-0 w-40 h-40 rounded-full hover:bg-[#7171719c] cursor-pointer transition-all duration-300"></div>
         </div>
       </div>
-      <div className="mt-10 bg-gray-100">
+      <div className="mt-10 bg-gray-100 flex flex-col justify-between h-24 p-3">
         <h1 className="text-[#008069]">Your name</h1>
+        <div className="flex items-center justify-between">
+          <h1>Mo4a 🦂</h1>
+          <MdModeEditOutline className="text-gray-400 text-2xl cursor-pointer" />
+        </div>
+      </div>
+
+      <p className="mt-7 text-gray-500 mx-5">
+        This is not your username or PIN. This name will be visible to your
+        WhatsApp contacts.
+      </p>
+
+      <div className="mt-10 bg-gray-100 flex flex-col justify-between h-24 p-3">
+        <h1 className="text-[#008069]">About</h1>
+        <div className="flex items-center justify-between">
+          <h1>Half coder, half human</h1>
+          <MdModeEditOutline className="text-gray-400 text-2xl cursor-pointer" />
+        </div>
       </div>
     </div>
   );
