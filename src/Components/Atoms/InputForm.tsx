@@ -1,4 +1,6 @@
-const InputForm = () => {
+import { memo } from "react";
+
+const InputForm = memo(() => {
   return (
     <form className="mt-4">
       <input
@@ -8,6 +10,6 @@ const InputForm = () => {
       />
     </form>
   );
-};
+});
 
 export default InputForm;

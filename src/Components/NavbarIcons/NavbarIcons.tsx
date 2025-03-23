@@ -27,7 +27,9 @@ const NavbarIcons = () => {
     <div className="flex flex-col justify-between items-center bg-[#d5d5d5] border-r-[1px] border-[#00000040] h-[50pc] p-4">
       <div className="flex flex-col gap-3">{navbarIconList}</div>
       <div className="flex flex-col gap-5 items-center">
-        <IoMdSettings className={Icon} />
+        <NavLink to={"/chats/setting"}>
+          <IoMdSettings className={Icon} />
+        </NavLink>
         <NavLink to={"/chats/profile"}>
           <div className="cursor-pointer">
             <img

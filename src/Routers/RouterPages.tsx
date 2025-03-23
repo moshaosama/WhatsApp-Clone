@@ -1,6 +1,12 @@
 import { createBrowserRouter, RouterProvider } from "react-router";
 import { Chats, Error, Home } from "../Pages";
-import { Channels, ChatsNumber, Profile, Status } from "../Components";
+import {
+  Channels,
+  ChatsNumber,
+  Profile,
+  Settings,
+  Status,
+} from "../Components";
 
 const RouterPages = () => {
   const routes = createBrowserRouter([
@@ -31,6 +37,10 @@ const RouterPages = () => {
             {
               path: "profile",
               element: <Profile />,
+            },
+            {
+              path: "setting",
+              element: <Settings />,
             },
           ],
         },

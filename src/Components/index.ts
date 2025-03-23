@@ -6,6 +6,7 @@ import Channels from "./Channels/Channels";
 import InputForm from "./Atoms/InputForm";
 import Profile from "./Profile/Profile";
 import HeaderPage from "./Atoms/HeaderPage";
+import Settings from "./Settings/Settings";
 
 export {
   LoadingHomePage,
@@ -16,4 +17,5 @@ export {
   InputForm,
   Profile,
   HeaderPage,
+  Settings,
 };
