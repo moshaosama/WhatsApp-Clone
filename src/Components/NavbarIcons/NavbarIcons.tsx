@@ -1,14 +1,15 @@
 import { useMemo } from "react";
 import { NavbarIconsList } from "./NavbarIconsList";
 import { NavbarIconType } from "../../Types/NavbarIcon/NavbarIcon";
+import { NavLink } from "react-router";
 
 const NavbarIcons = () => {
   const navbarIconList = useMemo(() => {
     return NavbarIconsList?.map((el: NavbarIconType) => {
       return (
-        <h1 key={el.id} title={el.Title}>
+        <NavLink to={el.To} key={el.id} title={el.Title}>
           {el.Icon}
-        </h1>
+        </NavLink>
       );
     });
   }, []);
