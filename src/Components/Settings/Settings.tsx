@@ -24,6 +24,7 @@ const Settings = () => {
         ActiveIconAdd={false}
         ActiveIconDetails={false}
       />
+      {/* /////////////////////////////////////// */}
 
       <InputForm />
       <Link to={"/chats/profile"}>
