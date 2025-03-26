@@ -7,6 +7,7 @@ import {
   Settings,
   Status,
 } from "../Components";
+import Account from "../Pages/account";
 
 const RouterPages = () => {
   const routes = createBrowserRouter([
@@ -45,6 +46,10 @@ const RouterPages = () => {
           ],
         },
       ],
+    },
+    {
+      path: "account",
+      element: <Account />,
     },
   ]);
 
