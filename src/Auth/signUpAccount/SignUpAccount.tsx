@@ -43,15 +43,17 @@ const SignUpAccount = () => {
             }
           />
         </form>
-        <button
-          onClick={handleClick}
-          className="bg-[#008069] my-6 px-8 py-2 text-white hover:bg-[#7ddbc8] transition-all duration-200 cursor-pointer rounded-full"
-        >
-          Next
-        </button>
-        <Link to={"/account"}>
-          <LinksAccount Title="Log in with QR code" />
-        </Link>
+        <div className="flex flex-col items-center">
+          <button
+            onClick={handleClick}
+            className="bg-[#008069] my-6 px-8 py-2 text-white hover:bg-[#7ddbc8] transition-all duration-200 cursor-pointer rounded-full"
+          >
+            Next
+          </button>
+          <Link to={"/account"}>
+            <LinksAccount Title="Log in with QR code" />
+          </Link>
+        </div>
       </div>
     </div>
   );
