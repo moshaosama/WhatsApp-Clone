@@ -8,6 +8,8 @@ import {
   Status,
 } from "../Components";
 import Account from "../Pages/account";
+import SignUp from "../Pages/SignUp";
+import AccountComponent from "../Auth/Account/Account";
 
 const RouterPages = () => {
   const routes = createBrowserRouter([
@@ -50,6 +52,16 @@ const RouterPages = () => {
     {
       path: "account",
       element: <Account />,
+      children: [
+        {
+          index: true,
+          element: <AccountComponent />,
+        },
+        {
+          path: "signup",
+          element: <SignUp />,
+        },
+      ],
     },
   ]);
 

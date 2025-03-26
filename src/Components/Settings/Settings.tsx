@@ -2,13 +2,13 @@ import { useMemo } from "react";
 import HeaderPage from "../Atoms/HeaderPage";
 import InputForm from "../Atoms/InputForm";
 import { IoLogOutOutline } from "react-icons/io5";
-import { ProfileList } from "./ProfileList";
+import { SettingsList } from "./SettingsList";
 import { SettingType } from "../../Types/Settings/SettingType";
-import { Link } from "react-router";
+import { Link, Links } from "react-router";
 
 const Settings = () => {
   const ProfileListRender = useMemo(() => {
-    return ProfileList.map((el: SettingType) => {
+    return SettingsList.map((el: SettingType) => {
       return (
         <div className="hover:bg-gray-200 transition-all duration-200 px-2 py-5 text-gray-500 flex items-center gap-2 text-xl cursor-pointer">
           {el.Icon}
@@ -44,10 +44,12 @@ const Settings = () => {
       </Link>
       <div className="mt-4">
         {ProfileListRender}
-        <div className="hover:bg-gray-200 transition-all duration-200  px-2 py-5 text-red-500 flex items-center gap-2 text-xl cursor-pointer">
-          <IoLogOutOutline />
-          <h1>Log out</h1>
-        </div>
+        <Link to={"/account"}>
+          <div className="hover:bg-gray-200 transition-all duration-200  px-2 py-5 text-red-500 flex items-center gap-2 text-xl cursor-pointer">
+            <IoLogOutOutline />
+            <h1>Log out</h1>
+          </div>
+        </Link>
       </div>
     </div>
   );

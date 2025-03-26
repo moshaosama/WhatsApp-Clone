@@ -1,11 +1,11 @@
 import { BsChatSquareTextFill } from "react-icons/bs";
 import { FaLock } from "react-icons/fa";
 import { IoIosNotifications } from "react-icons/io";
-import { IoHelpCircle, IoLogOutOutline } from "react-icons/io5";
+import { IoHelpCircle } from "react-icons/io5";
 import { MdAccountCircle } from "react-icons/md";
 import { TbSquareRoundedLetterSFilled } from "react-icons/tb";
 
-export const ProfileList = [
+export const SettingsList = [
   {
     id: 1,
     Icon: <MdAccountCircle />,
