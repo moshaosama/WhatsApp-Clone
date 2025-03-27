@@ -2,8 +2,11 @@ import { MdModeEditOutline } from "react-icons/md";
 import HeaderPage from "../Atoms/HeaderPage";
 import { memo } from "react";
 import { DetailsProfileProps } from "../../Types/Profile/Profile";
+import useProfile from "../../Hooks/useProfile";
 
 const Profile = () => {
+  const { dataUser } = useProfile();
+
   return (
     <div className="w-96 ">
       <HeaderPage
@@ -24,14 +27,20 @@ const Profile = () => {
         </div>
       </div>
 
-      <DetailsProfile Title="Your name" Text="Mo4a 🦂" />
+      <DetailsProfile
+        Title="Your name"
+        Text={dataUser?.userName ? dataUser?.userName : "No Name"}
+      />
 
       <p className="mt-7 text-gray-500 mx-5">
         This is not your username or PIN. This name will be visible to your
         WhatsApp contacts.
       </p>
 
-      <DetailsProfile Title="About" Text="Half coder, half human" />
+      <DetailsProfile
+        Title="About"
+        Text={dataUser?.About ? dataUser?.About : "No About"}
+      />
     </div>
   );
 };

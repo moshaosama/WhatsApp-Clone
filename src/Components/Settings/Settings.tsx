@@ -5,8 +5,10 @@ import { IoLogOutOutline } from "react-icons/io5";
 import { SettingsList } from "./SettingsList";
 import { SettingType } from "../../Types/Settings/SettingType";
 import { Link, Links } from "react-router";
+import useProfile from "../../Hooks/useProfile";
 
 const Settings = () => {
+  const { dataUser } = useProfile();
   const ProfileListRender = useMemo(() => {
     return SettingsList.map((el: SettingType) => {
       return (
@@ -37,8 +39,12 @@ const Settings = () => {
             className="w-20 h-20 rounded-full object-cover"
           />
           <div className="text-sm">
-            <h1 className="font-semibold">Mo4a 🦂</h1>
-            <p className="text-gray-500">Half coder, half human</p>
+            <h1 className="font-semibold">
+              {dataUser?.userName ? dataUser?.userName : "No Name"}
+            </h1>
+            <p className="text-gray-500">
+              {dataUser?.About ? dataUser?.About : "No About"}
+            </p>
           </div>
         </div>
       </Link>
