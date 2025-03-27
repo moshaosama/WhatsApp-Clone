@@ -1,9 +1,9 @@
 import { MdModeEditOutline } from "react-icons/md";
 import HeaderPage from "../Atoms/HeaderPage";
-import { memo, useEffect, useRef, useState } from "react";
-import { DetailsProfileProps } from "../../Types/Profile/Profile";
+import { useEffect, useRef, useState } from "react";
 import useProfile from "../../Hooks/useProfile";
 import { HiCheck } from "react-icons/hi";
+import HandlingData from "./HandlingData/HandlingData";
 
 const Profile = () => {
   const { dataUser } = useProfile();
@@ -26,7 +26,11 @@ const Profile = () => {
       <div className="mt-7 flex justify-center">
         <div className="relative">
           <img
-            src="/WhatsApp Image 2024-10-20 at 21.44.22_3cca6ed1.jpg"
+            src={
+              dataUser?.Image
+                ? dataUser?.Image
+                : "https://www.generationsforpeace.org/wp-content/uploads/2018/03/empty-300x240.jpg"
+            }
             alt="Profile.png"
             loading="lazy"
             decoding="async"
@@ -36,82 +40,30 @@ const Profile = () => {
         </div>
       </div>
 
-      {inputNameActive ? (
-        <div className="mt-10 bg-gray-100 flex flex-col justify-between h-24 p-3">
-          <h1 className="text-[#008069]">Name</h1>
-          <div className="flex items-center justify-between">
-            <input
-              type="text"
-              value={dataUser?.userName ? dataUser?.userName : "No Name"}
-              className="w-full border-b-2 border-green-500"
-              ref={inputNameRef}
-            />
-            <HiCheck
-              className="text-gray-400 text-2xl cursor-pointer"
-              onClick={() => setInputNameActive(false)}
-            />
-          </div>
-        </div>
-      ) : (
-        <div className="mt-10 bg-gray-100 flex flex-col justify-between h-24 p-3">
-          <h1 className="text-[#008069]">Name</h1>
-          <div className="flex items-center justify-between">
-            <h1>{dataUser?.userName ? dataUser?.userName : "No Name"}</h1>
-            <MdModeEditOutline
-              className="text-gray-400 text-2xl cursor-pointer"
-              onClick={() => setInputNameActive(true)}
-            />
-          </div>
-        </div>
-      )}
+      <HandlingData
+        State={inputNameActive}
+        setState={() => setInputNameActive(!inputNameActive)}
+        Value={dataUser?.userName ? dataUser?.userName : "No Name"}
+        Title={"Name"}
+        Text={dataUser?.userName ? dataUser?.userName : "No Name"}
+        InputRef={inputNameRef}
+      />
 
       <p className="mt-7 text-gray-500 mx-5">
         This is not your username or PIN. This name will be visible to your
         WhatsApp contacts.
       </p>
 
-      {inputAboutActive ? (
-        <div className="mt-10 bg-gray-100 flex flex-col justify-between h-24 p-3">
-          <h1 className="text-[#008069]">About</h1>
-          <div className="flex items-center justify-between">
-            <input
-              type="text"
-              value={dataUser?.About ? dataUser?.About : "No About"}
-              className="w-full border-b-2 border-green-500"
-              ref={inputAboutRef}
-            />
-            <HiCheck
-              className="text-gray-400 text-2xl cursor-pointer"
-              onClick={() => setInputAboutActive(false)}
-            />
-          </div>
-        </div>
-      ) : (
-        <div className="mt-10 bg-gray-100 flex flex-col justify-between h-24 p-3">
-          <h1 className="text-[#008069]">About</h1>
-          <div className="flex items-center justify-between">
-            <h1>{dataUser?.About ? dataUser?.About : "No About"}</h1>
-            <MdModeEditOutline
-              className="text-gray-400 text-2xl cursor-pointer"
-              onClick={() => setInputAboutActive(true)}
-            />
-          </div>
-        </div>
-      )}
+      <HandlingData
+        State={inputAboutActive}
+        setState={() => setInputAboutActive(!inputAboutActive)}
+        Value={dataUser?.About ? dataUser?.About : "No About"}
+        Title={"About"}
+        Text={dataUser?.About ? dataUser?.About : "No About"}
+        InputRef={inputAboutRef}
+      />
     </div>
   );
 };
 
 export default Profile;
-
-const DetailsProfile = memo(({ Title, Text }: DetailsProfileProps) => {
-  return (
-    <div className="mt-10 bg-gray-100 flex flex-col justify-between h-24 p-3">
-      <h1 className="text-[#008069]">{Title}</h1>
-      <div className="flex items-center justify-between">
-        <h1>{Text}</h1>
-        <MdModeEditOutline className="text-gray-400 text-2xl cursor-pointer" />
-      </div>
-    </div>
-  );
-});
