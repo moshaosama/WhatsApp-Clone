@@ -5,9 +5,12 @@ import { NavLink } from "react-router";
 import Tippy from "@tippyjs/react";
 import { IoMdSettings } from "react-icons/io";
 import style from "./NavbarIcon.module.css";
+import useProfile from "../../Hooks/useProfile";
+import { NoImage } from "../../Utils/Images";
 
 const NavbarIcons = () => {
   const { Icon } = style;
+  const { dataUser } = useProfile();
   const navbarIconList = useMemo(() => {
     return NavbarIconsList?.map((el: NavbarIconType) => {
       return (
@@ -33,7 +36,7 @@ const NavbarIcons = () => {
         <NavLink to={"/chats/profile"}>
           <div className="cursor-pointer">
             <img
-              src="/WhatsApp Image 2024-10-20 at 21.44.22_3cca6ed1.jpg"
+              src={dataUser?.Image ? dataUser?.Image : NoImage}
               alt="Profile.png"
               loading="lazy"
               decoding="async"

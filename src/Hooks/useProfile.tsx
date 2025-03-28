@@ -1,7 +1,7 @@
 type useProfileType = {
   statusbar: string;
   message: string;
-  DataResult: {
+  result: {
     About: string;
     Image: string;
     id: number;
@@ -15,7 +15,7 @@ const useProfile = () => {
     window.localStorage.getItem("user")!
   );
 
-  const dataUser = DataProfile?.DataResult[0];
+  const dataUser = DataProfile?.result[0];
 
   return { DataProfile, dataUser };
 };
