@@ -26,7 +26,7 @@ This project is a clone of the popular messaging application **WhatsApp**, built
     ```
 2. Install dependencies for both frontend and backend:
     ```bash
-    cd whatsapp-clone
+    cd WhatsApp-Clone
     cd frontend
     npm install
     cd ../backend
