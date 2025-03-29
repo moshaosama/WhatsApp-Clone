@@ -9,6 +9,7 @@ type HandlingDataProps = {
   Title: string;
   Text: string;
   InputRef: RefObject<HTMLInputElement | null>;
+  onChange: (el: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
 const HandlingData = ({
@@ -18,6 +19,7 @@ const HandlingData = ({
   Title,
   Text,
   InputRef,
+  onChange,
 }: HandlingDataProps) => {
   return (
     <>
@@ -30,6 +32,7 @@ const HandlingData = ({
               value={Value}
               className="w-full border-b-2 border-green-500"
               ref={InputRef}
+              onChange={onChange}
             />
             <HiCheck
               className="text-gray-400 text-2xl cursor-pointer"

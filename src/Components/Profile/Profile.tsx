@@ -13,34 +13,43 @@ const Profile = () => {
   const [inputAboutActive, setInputAboutActive] = useState(false);
   const inputNameRef = useRef<HTMLInputElement | null>(null);
   const inputAboutRef = useRef<HTMLInputElement | null>(null);
+  const [userName, setUserName] = useState(dataUser?.userName || "No Name");
   const [Image, setImage] = useState("");
   const [StatePhoto, setStatePhoto] = useState(false);
 
-  const handleChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChangeImage = async (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
     const file = event.target.files![0];
 
     if (file) {
       const imageUrl = URL.createObjectURL(file);
       setImage(imageUrl);
     }
+  };
 
-    try {
-      const response = await fetch("http://localhost:3000/create_image", {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          phoneNumber: dataUser?.phoneNumber,
-          Image: Image,
-        }),
+  const HandleChangeName = (el: React.ChangeEvent<HTMLInputElement>) => {
+    setUserName(el.target.value);
+  };
+
+  const handleClickName = async () => {
+    await fetch("http://localhost:3000/create_profile", {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        phoneNumber: dataUser?.phoneNumber,
+        userName,
+      }),
+    })
+      .then((res) => {
+        return res.json();
+      })
+      .then((data) => {
+        window.localStorage.setItem("user", JSON.stringify(data));
       });
-
-      const result = await response.json();
-      window.localStorage.setItem("user", JSON.stringify(result));
-    } catch (error) {
-      console.error("Error uploading image:", error);
-    }
+    setInputNameActive(!inputNameActive);
   };
 
   useEffect(() => {
@@ -82,7 +91,11 @@ const Profile = () => {
               </div>
               <div className="flex items-center gap-3 py-2 px-4 cursor-pointer hover:bg-[#c5c5c5]">
                 <MdDriveFolderUpload size={15} />
-                <input type="file" accept="image/*" onChange={handleChange} />
+                <input
+                  type="file"
+                  accept="image/*"
+                  onChange={handleChangeImage}
+                />
               </div>
               <hr />
               <div className="flex items-center gap-3  py-2 px-4 cursor-pointer hover:bg-[#c5c5c5]">
@@ -96,11 +109,12 @@ const Profile = () => {
 
       <HandlingData
         State={inputNameActive}
-        setState={() => setInputNameActive(!inputNameActive)}
-        Value={dataUser?.userName ? dataUser?.userName : "No Name"}
+        setState={handleClickName}
         Title={"Name"}
+        Value={userName}
         Text={dataUser?.userName ? dataUser?.userName : "No Name"}
         InputRef={inputNameRef}
+        onChange={HandleChangeName}
       />
 
       <p className="mt-7 text-gray-500 mx-5">
@@ -110,8 +124,9 @@ const Profile = () => {
 
       <HandlingData
         State={inputAboutActive}
+        onChange={() => {}}
         setState={() => setInputAboutActive(!inputAboutActive)}
-        Value={dataUser?.About ? dataUser?.About : "No About"}
+        Value=""
         Title={"About"}
         Text={dataUser?.About ? dataUser?.About : "No About"}
         InputRef={inputAboutRef}
